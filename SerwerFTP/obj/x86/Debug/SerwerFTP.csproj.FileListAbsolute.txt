@@ -1,0 +1,7 @@
+c:\users\lenovo\documents\visual studio 2010\Projects\SerwerFTP\SerwerFTP\bin\Debug\SerwerFTP.exe
+c:\users\lenovo\documents\visual studio 2010\Projects\SerwerFTP\SerwerFTP\bin\Debug\SerwerFTP.pdb
+c:\users\lenovo\documents\visual studio 2010\Projects\SerwerFTP\SerwerFTP\obj\x86\Debug\SerwerFTP.Form1.resources
+c:\users\lenovo\documents\visual studio 2010\Projects\SerwerFTP\SerwerFTP\obj\x86\Debug\SerwerFTP.Properties.Resources.resources
+c:\users\lenovo\documents\visual studio 2010\Projects\SerwerFTP\SerwerFTP\obj\x86\Debug\SerwerFTP.csproj.GenerateResource.Cache
+c:\users\lenovo\documents\visual studio 2010\Projects\SerwerFTP\SerwerFTP\obj\x86\Debug\SerwerFTP.exe
+c:\users\lenovo\documents\visual studio 2010\Projects\SerwerFTP\SerwerFTP\obj\x86\Debug\SerwerFTP.pdb
