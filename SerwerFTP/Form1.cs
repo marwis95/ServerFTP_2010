@@ -54,16 +54,16 @@ namespace SerwerFTP
             using (StreamWriter writer = new StreamWriter(stream, Encoding.ASCII))
             using (StreamReader reader = new StreamReader(stream, Encoding.ASCII))
             {
-                writer.WriteLine("Polaczono");
-                writer.Flush();
-                writer.WriteLine("Bede powtarzal za Toba. Wyslij pusta linie aby zakonczyc");
+
+                writer.WriteLine("220 READY!");
                 writer.Flush();
 
                 String line = null;
 
                 while (!string.IsNullOrEmpty(line = reader.ReadLine()))
                 {
-                    writer.WriteLine("Echoing back: {0}", line);
+                    Console.WriteLine(line);
+                    writer.WriteLine("502 I DONT'T KNOW");
                     writer.Flush();
                 }
 
