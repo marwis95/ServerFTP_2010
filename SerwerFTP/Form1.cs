@@ -46,30 +46,12 @@ namespace SerwerFTP
 
         private void HandleAcceptTcpClient(IAsyncResult result)
         {
-            TcpClient client = _listener.EndAcceptTcpClient(result);
             _listener.BeginAcceptTcpClient(HandleAcceptTcpClient, _listener);
+            TcpClient client = _listener.EndAcceptTcpClient(result);
 
-            NetworkStream stream = client.GetStream();
+            ClientConnection connection = new ClientConnection(client);
 
-            using (StreamWriter writer = new StreamWriter(stream, Encoding.ASCII))
-            using (StreamReader reader = new StreamReader(stream, Encoding.ASCII))
-            {
-
-                writer.WriteLine("220 READY!");
-                writer.Flush();
-
-                String line = null;
-
-                while (!string.IsNullOrEmpty(line = reader.ReadLine()))
-                {
-                    Console.WriteLine(line);
-                    writer.WriteLine("502 I DONT'T KNOW");
-                    writer.Flush();
-                }
-
-            }
-
-
+            ThreadPool.QueueUserWorkItem(connection.HandleClient, client);
         }
 
         private void Form1_Load(object sender, EventArgs e)
