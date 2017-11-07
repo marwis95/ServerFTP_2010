@@ -74,6 +74,10 @@ namespace SerwerFTP
                             case "QUIT":
                                 response = "221 Service closing control connection";
                                 break;
+                            case "TYPE":
+                                string[] splitArgs = arguments.Split(' ');
+                                response = Type(splitArgs[0], splitArgs.Length > 1 ? splitArgs[1] : null);
+                                break;
 
                             default:
                                 response = "502 Command not implemented";
@@ -129,6 +133,43 @@ namespace SerwerFTP
         {
             return "250 Changed to new directory";
         }
+
+
+        private string Type(string typeCode, string formatControl)
+        {
+            string response = "";
+
+            switch (typeCode)
+            {
+                case "A":
+                    response = "200 OK";
+                    break;
+                case "I":
+                case "E":
+                case "L":
+                default:
+                    response = "504 Command not implemented for that parameter.";
+                    break;
+            }
+
+            if (formatControl != null)
+            {
+                switch (formatControl)
+                {
+                    case "N":
+                        response = "200 OK";
+                        break;
+                    case "T":
+                    case "C":
+                    default:
+                        response = "504 Command not implemented for that parameter.";
+                        break;
+                }
+            }
+
+            return response;
+        }
+
 
         #endregion
     }
