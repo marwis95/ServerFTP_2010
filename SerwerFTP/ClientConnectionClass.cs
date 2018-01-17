@@ -8,21 +8,65 @@ using System.Net;
 //using log4net;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
+using System.Windows.Forms;
+
 
 namespace SerwerFTP
 {
     public class ClientConnection
     {
+
+                #region Enums
+
+        private enum TransferType
+        {
+            Ascii,
+            Ebcdic,
+            Image,
+            Local,
+        }
+
+        private enum FormatControlType
+        {
+            NonPrint,
+            Telnet,
+            CarriageControl,
+        }
+
+        private enum DataConnectionType
+        {
+            Passive,
+            Active,
+        }
+
+        private enum FileStructureType
+        {
+            File,
+            Record,
+            Page,
+        }
+
+        #endregion
+
         private TcpClient _controlClient;
 
         private NetworkStream _controlStream;
         private StreamReader _controlReader;
         private StreamWriter _controlWriter;
         private TcpListener _passiveListener;
+        private TcpClient _dataClient;
 
         private string _username;
+        private string _root = "/";
         private string _transferType;
+
+        private IPEndPoint _dataEndpoint;
+        private User _currentUser;
+        private string _currentDirectory;
+ 
    
+
+        private DataConnectionType _dataConnectionType = DataConnectionType.Active;
 
         public ClientConnection(TcpClient client)
         {
@@ -87,6 +131,9 @@ namespace SerwerFTP
                             case "PASV":
                                 response = Passive();
                                 break;
+                            case "LIST":
+                                response = List(arguments);
+                                break;
 
                             default:
                                 response = "502 Command not implemented";
@@ -116,6 +163,13 @@ namespace SerwerFTP
                 throw;
             }
         }
+
+
+        private bool IsPathValid(string path)
+        {
+            return path.StartsWith(_root);
+        }
+
 
         #region FTP Commands
 
@@ -171,6 +225,8 @@ namespace SerwerFTP
 
         }
 
+
+
         private string Passive()
         {
             IPAddress localAddress = ((IPEndPoint)_controlClient.Client.LocalEndPoint).Address;
@@ -191,6 +247,110 @@ namespace SerwerFTP
             return string.Format("227 Entering Passive Mode ({0},{1},{2},{3},{4},{5})",
                           address[0], address[1], address[2], address[3], portArray[0], portArray[1]);
         }
+
+
+
+        private string List(string pathname)
+        {
+
+            if (pathname == null)
+            {
+                pathname = string.Empty;
+            }
+
+
+            
+            _currentDirectory = _root;
+            pathname = new DirectoryInfo(Path.Combine(_currentDirectory, pathname)).FullName;
+            MessageBox.Show(pathname);
+            if (IsPathValid(pathname))
+            {
+                
+                if (_dataConnectionType == DataConnectionType.Active)
+                {
+                _dataClient = new TcpClient();
+                _dataClient.BeginConnect(_dataEndpoint.Address, _dataEndpoint.Port, DoList, pathname);
+            }
+            else
+                {
+                _passiveListener.BeginAcceptTcpClient(DoList, pathname);
+                }
+
+            return string.Format("150 Opening {0} mode data transfer for LIST", _dataConnectionType);
+            }
+
+            return "450 Requested file action not taken";
+            }
+
+
+        private void DoList(IAsyncResult result)
+        {
+            if (_dataConnectionType == DataConnectionType.Active)
+            {
+                _dataClient.EndConnect(result);
+            }
+            else
+            {
+                _dataClient = _passiveListener.EndAcceptTcpClient(result);
+            }
+
+            string pathname = (string)result.AsyncState;
+
+
+            using (NetworkStream dataStream = _dataClient.GetStream())
+            {
+                StreamReader _dataReader = new StreamReader(dataStream, Encoding.ASCII);
+                StreamWriter _dataWriter = new StreamWriter(dataStream, Encoding.ASCII);
+
+
+                IEnumerable<string> directories = Directory.EnumerateDirectories(pathname);
+
+                foreach (string dir in directories)
+                {
+                    DirectoryInfo d = new DirectoryInfo(dir);
+
+                    string date = d.LastWriteTime < DateTime.Now - TimeSpan.FromDays(180) ?
+                        d.LastWriteTime.ToString("MMM dd  yyyy") :
+                        d.LastWriteTime.ToString("MMM dd HH:mm");
+
+                    string line = string.Format("drwxr-xr-x    2 2003     2003     {0,8} {1} {2}", "4096", date, d.Name);
+
+                    _dataWriter.WriteLine(line);
+                    _dataWriter.Flush();
+                }
+
+
+                IEnumerable<string> files = Directory.EnumerateFiles(pathname);
+
+                foreach (string file in files)
+                {
+                    FileInfo f = new FileInfo(file);
+
+                    string date = f.LastWriteTime < DateTime.Now - TimeSpan.FromDays(180) ?
+                        f.LastWriteTime.ToString("MMM dd  yyyy") :
+                        f.LastWriteTime.ToString("MMM dd HH:mm");
+
+                    string line = string.Format("-rw-r--r--    2 2003     2003     {0,8} {1} {2}", f.Length, date, f.Name);
+
+                    _dataWriter.WriteLine(line);
+                    _dataWriter.Flush();
+                }
+
+
+            }
+
+
+            _dataClient.Close();
+            _dataClient = null;
+
+            _controlWriter.WriteLine("226 Transfer complete");
+            _controlWriter.Flush();
+
+
+        }
+
+
+
 
         private string Type(string typeCode, string formatControl)
         {
