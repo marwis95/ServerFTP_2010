@@ -57,7 +57,7 @@ namespace SerwerFTP
         private TcpClient _dataClient;
 
         private string _username;
-        private string _root = "/";
+        private string _root = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\Data\\";
         private string _transferType;
 
         private IPEndPoint _dataEndpoint;
@@ -265,7 +265,7 @@ namespace SerwerFTP
             MessageBox.Show(pathname);
             if (IsPathValid(pathname))
             {
-                
+                MessageBox.Show("OK");
                 if (_dataConnectionType == DataConnectionType.Active)
                 {
                 _dataClient = new TcpClient();
