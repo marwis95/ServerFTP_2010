@@ -18,9 +18,11 @@ namespace SerwerFTP
         private NetworkStream _controlStream;
         private StreamReader _controlReader;
         private StreamWriter _controlWriter;
+        private TcpListener _passiveListener;
 
         private string _username;
         private string _transferType;
+   
 
         public ClientConnection(TcpClient client)
         {
@@ -79,6 +81,12 @@ namespace SerwerFTP
                                 string[] splitArgs = arguments.Split(' ');
                                 response = Type(splitArgs[0], splitArgs.Length > 1 ? splitArgs[1] : null);
                                 break;
+                            case "PORT":
+                                response = Port(arguments);
+                                break;
+                            case "PASV":
+                                response = Passive();
+                                break;
 
                             default:
                                 response = "502 Command not implemented";
@@ -135,6 +143,54 @@ namespace SerwerFTP
             return "250 Changed to new directory";
         }
 
+
+        private string Port(string hostPort)
+        {
+
+            string[] ipAndPort = hostPort.Split(',');
+
+            byte[] ipAddress = new byte[4];
+            byte[] port = new byte[2];
+
+            for (int i = 0; i < 4; i++)
+            {
+                ipAddress[i] = Convert.ToByte(ipAndPort[i]);
+            }
+
+            for (int i = 4; i < 6; i++)
+            {
+                port[i - 4] = Convert.ToByte(ipAndPort[i]);
+            }
+
+            if (BitConverter.IsLittleEndian)
+                Array.Reverse(port);
+
+            BitConverter.ToInt16(port, 0);
+
+            return "200 Data Connection Established";
+
+        }
+
+        private string Passive()
+        {
+            IPAddress localAddress = ((IPEndPoint)_controlClient.Client.LocalEndPoint).Address;
+
+            _passiveListener = new TcpListener(localAddress, 0);
+            _passiveListener.Start();
+
+            IPEndPoint localEndpoint = ((IPEndPoint)_passiveListener.LocalEndpoint);
+
+            byte[] address = localEndpoint.Address.GetAddressBytes();
+            short port = (short)localEndpoint.Port;
+
+            byte[] portArray = BitConverter.GetBytes(port);
+
+            if (BitConverter.IsLittleEndian)
+                Array.Reverse(portArray);
+
+            return string.Format("227 Entering Passive Mode ({0},{1},{2},{3},{4},{5})",
+                          address[0], address[1], address[2], address[3], portArray[0], portArray[1]);
+        }
 
         private string Type(string typeCode, string formatControl)
         {
