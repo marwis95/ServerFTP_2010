@@ -20,6 +20,7 @@ namespace SerwerFTP
         private StreamWriter _controlWriter;
 
         private string _username;
+        private string _transferType;
 
         public ClientConnection(TcpClient client)
         {
@@ -137,14 +138,15 @@ namespace SerwerFTP
 
         private string Type(string typeCode, string formatControl)
         {
-            string response = "";
+            string response = "500 ERROR";
 
             switch (typeCode)
             {
                 case "A":
+                case "I":
+                    _transferType = typeCode;
                     response = "200 OK";
                     break;
-                case "I":
                 case "E":
                 case "L":
                 default:
@@ -169,7 +171,6 @@ namespace SerwerFTP
 
             return response;
         }
-
 
         #endregion
     }
