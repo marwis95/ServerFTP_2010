@@ -63,7 +63,7 @@ namespace SerwerFTP
         private IPEndPoint _dataEndpoint;
         private User _currentUser;
         private string _currentDirectory;
- 
+
    
 
         private DataConnectionType _dataConnectionType = DataConnectionType.Active;
@@ -218,7 +218,9 @@ namespace SerwerFTP
 
             if (BitConverter.IsLittleEndian)
                 Array.Reverse(port);
-
+            
+            _dataEndpoint = new IPEndPoint(new IPAddress(ipAddress), BitConverter.ToInt16(port, 0));
+            
             BitConverter.ToInt16(port, 0);
 
             return "200 Data Connection Established";
@@ -244,6 +246,7 @@ namespace SerwerFTP
             if (BitConverter.IsLittleEndian)
                 Array.Reverse(portArray);
 
+
             return string.Format("227 Entering Passive Mode ({0},{1},{2},{3},{4},{5})",
                           address[0], address[1], address[2], address[3], portArray[0], portArray[1]);
         }
@@ -252,6 +255,7 @@ namespace SerwerFTP
 
         private string List(string pathname)
         {
+            
 
             if (pathname == null)
             {
@@ -269,7 +273,8 @@ namespace SerwerFTP
                 if (_dataConnectionType == DataConnectionType.Active)
                 {
                 _dataClient = new TcpClient();
-                _dataClient.BeginConnect(_dataEndpoint.Address, _dataEndpoint.Port, DoList, pathname);
+                //_dataClient.BeginConnect(_dataEndpoint.Address, _dataEndpoint.Port, DoList, pathname);
+                MessageBox.Show("OKKK");
             }
             else
                 {

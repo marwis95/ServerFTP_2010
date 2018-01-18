@@ -5,3 +5,4 @@ c:\users\lenovo\documents\visual studio 2010\Projects\SerwerFTP\SerwerFTP\obj\x8
 c:\users\lenovo\documents\visual studio 2010\Projects\SerwerFTP\SerwerFTP\obj\x86\Debug\SerwerFTP.csproj.GenerateResource.Cache
 c:\users\lenovo\documents\visual studio 2010\Projects\SerwerFTP\SerwerFTP\obj\x86\Debug\SerwerFTP.exe
 c:\users\lenovo\documents\visual studio 2010\Projects\SerwerFTP\SerwerFTP\obj\x86\Debug\SerwerFTP.pdb
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\SerwerFTP\obj\x86\Debug\SerwerFTP.csprojResolveAssemblyReference.cache
