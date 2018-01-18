@@ -1,0 +1,16 @@
+C:\Users\basshari\Downloads\SharpFtpServer (1)\SharpFtpServer\bin\Debug\SharpFtpServer.exe.config
+C:\Users\basshari\Downloads\SharpFtpServer (1)\SharpFtpServer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\plc\Desktop\sharpftpserver\SharpFtpServer\bin\Debug\SharpFtpServer.exe.config
+C:\Users\plc\Desktop\sharpftpserver\SharpFtpServer\obj\x86\Debug\SharpFtpServer.csprojResolveAssemblyReference.cache
+C:\Users\plc\Desktop\sharpftpserver\SharpFtpServer\bin\Debug\SharpFtpServer.log4net
+C:\Users\plc\Desktop\sharpftpserver\SharpFtpServer\obj\x86\Debug\SharpFtpServer.exe
+C:\Users\plc\Desktop\sharpftpserver\SharpFtpServer\obj\x86\Debug\SharpFtpServer.pdb
+C:\Users\plc\Desktop\sharpftpserver\SharpFtpServer\bin\Debug\SharpFtpServer.exe
+C:\Users\plc\Desktop\sharpftpserver\SharpFtpServer\bin\Debug\SharpFtpServer.pdb
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\bin\Debug\SharpFtpServer.exe.config
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\obj\x86\Debug\SharpFtpServer.exe
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\obj\x86\Debug\SharpFtpServer.pdb
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\bin\Debug\SharpFtpServer.log4net
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\bin\Debug\SharpFtpServer.exe
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\bin\Debug\SharpFtpServer.pdb
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\obj\x86\Debug\SharpFtpServer.csprojResolveAssemblyReference.cache

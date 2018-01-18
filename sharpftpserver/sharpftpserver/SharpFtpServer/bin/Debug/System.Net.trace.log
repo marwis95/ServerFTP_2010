@@ -1,0 +1,64 @@
+System.Net Error: 0 : [4848] Exception in AppDomain#65934242::UnhandledExceptionHandler - Nie można odnaleźć części ścieżki „C:\Users\plc\Desktop\sharpftpserver\SharpFtpServer\bin\Debug”..
+   w System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   w System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   w System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   w System.IO.Directory.EnumerateDirectories(String path)
+   w SharpFtpServer.ClientConnection.ListOperation(NetworkStream dataStream, String pathname) w C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\ClientConnection.cs:wiersz 995
+   w SharpFtpServer.ClientConnection.DoDataConnectionOperation(IAsyncResult result) w C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\ClientConnection.cs:wiersz 925
+   w System.Net.LazyAsyncResult.Complete(IntPtr userToken)
+   w System.Net.ContextAwareResult.CompleteCallback(Object state)
+   w System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   w System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   w System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   w System.Net.ContextAwareResult.Complete(IntPtr userToken)
+   w System.Net.LazyAsyncResult.ProtectedInvokeCallback(Object result, IntPtr userToken)
+   w System.Net.Sockets.BaseOverlappedAsyncResult.CompletionPortCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* nativeOverlapped)
+   w System.Threading._IOCompletionCallback.PerformIOCompletionCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* pOVERLAP)
+System.Net Error: 0 : [4468] Exception in AppDomain#12549444::UnhandledExceptionHandler - Nie można odnaleźć części ścieżki „C:\Users\plc\Desktop\sharpftpserver\SharpFtpServer\bin\Debug”..
+   w System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   w System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   w System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   w System.IO.Directory.EnumerateDirectories(String path)
+   w SharpFtpServer.ClientConnection.ListOperation(NetworkStream dataStream, String pathname) w C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\ClientConnection.cs:wiersz 995
+   w SharpFtpServer.ClientConnection.DoDataConnectionOperation(IAsyncResult result) w C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\ClientConnection.cs:wiersz 925
+   w System.Net.LazyAsyncResult.Complete(IntPtr userToken)
+   w System.Net.ContextAwareResult.CompleteCallback(Object state)
+   w System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   w System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   w System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   w System.Net.ContextAwareResult.Complete(IntPtr userToken)
+   w System.Net.LazyAsyncResult.ProtectedInvokeCallback(Object result, IntPtr userToken)
+   w System.Net.Sockets.BaseOverlappedAsyncResult.CompletionPortCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* nativeOverlapped)
+   w System.Threading._IOCompletionCallback.PerformIOCompletionCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* pOVERLAP)
+System.Net Error: 0 : [7836] Exception in AppDomain#65934242::UnhandledExceptionHandler - Nie można odnaleźć części ścieżki „C:\Users\plc\Desktop\sharpftpserver\SharpFtpServer\bin\Debug”..
+   w System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   w System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   w System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   w System.IO.Directory.EnumerateDirectories(String path)
+   w SharpFtpServer.ClientConnection.ListOperation(NetworkStream dataStream, String pathname) w C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\ClientConnection.cs:wiersz 995
+   w SharpFtpServer.ClientConnection.DoDataConnectionOperation(IAsyncResult result) w C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\ClientConnection.cs:wiersz 925
+   w System.Net.LazyAsyncResult.Complete(IntPtr userToken)
+   w System.Net.ContextAwareResult.CompleteCallback(Object state)
+   w System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   w System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   w System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   w System.Net.ContextAwareResult.Complete(IntPtr userToken)
+   w System.Net.LazyAsyncResult.ProtectedInvokeCallback(Object result, IntPtr userToken)
+   w System.Net.Sockets.BaseOverlappedAsyncResult.CompletionPortCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* nativeOverlapped)
+   w System.Threading._IOCompletionCallback.PerformIOCompletionCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* pOVERLAP)
+System.Net Error: 0 : [6348] Exception in AppDomain#65934242::UnhandledExceptionHandler - Nie można odnaleźć części ścieżki „C:\Users\plc\Desktop\sharpftpserver\SharpFtpServer\bin\Debug”..
+   w System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   w System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   w System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   w System.IO.Directory.EnumerateDirectories(String path)
+   w SharpFtpServer.ClientConnection.ListOperation(NetworkStream dataStream, String pathname) w C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\ClientConnection.cs:wiersz 995
+   w SharpFtpServer.ClientConnection.DoDataConnectionOperation(IAsyncResult result) w C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\SerwerFTP\sharpftpserver\sharpftpserver\SharpFtpServer\ClientConnection.cs:wiersz 925
+   w System.Net.LazyAsyncResult.Complete(IntPtr userToken)
+   w System.Net.ContextAwareResult.CompleteCallback(Object state)
+   w System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   w System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   w System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   w System.Net.ContextAwareResult.Complete(IntPtr userToken)
+   w System.Net.LazyAsyncResult.ProtectedInvokeCallback(Object result, IntPtr userToken)
+   w System.Net.Sockets.BaseOverlappedAsyncResult.CompletionPortCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* nativeOverlapped)
+   w System.Threading._IOCompletionCallback.PerformIOCompletionCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* pOVERLAP)
